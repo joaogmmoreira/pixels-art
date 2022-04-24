@@ -17,13 +17,13 @@ window.onload = function () {
     }
 
 
-    var lista = document.getElementById('color-palette');
+    //var lista = document.getElementById('color-palette');
     // var preto = document.createElement('li');
     // document.body.appendChild(preto);
     // preto.innerText = 'Preto';
     // preto.className = 'color';
     // preto.style.backgroundColor = 'black';
-
+    
     preto.style.backgroundColor = 'black';
 
     azul.style.backgroundColor = 'blue';
@@ -38,7 +38,7 @@ window.onload = function () {
     function selection (event) {
         for (let i = 0; i <= colors.length; i++) {
             if (colors[i].className = 'color') {
-                console.log(colors[i]);
+                //console.log(colors[i]);
                 event.target.className = 'color selected';
 
             }else {
@@ -47,19 +47,24 @@ window.onload = function () {
             
         }
        
-    }  
+    } 
+
+    var pixel = document.getElementsByClassName('pixel');
+    for (var i = 0; i < pixel.length; i++) {
+        pixel[i].addEventListener('click', paint);
+    }
+
+
+    function paint (event) {
+        // for (let i = 0; i <= pixel.length; i++) {}
+        for (let i = 0; i <= colors.length; i++) {
+            if (colors[i].className = 'color selected') {
+                event.target.style.backgroundColor = 'red';
+            }
+        }
+    
+
+    }
+
 
 }
-
- 
-
-// function deselection (event) {
-//     let colors = document.getElementsByClassName('color');
-//     for (let i = 0; i <= colors.length; i++) {
-//         if (colors[i].className === 'color selected') {
-//             event.target.className = 'color';
-//         }
-    
-//     }
-    
-// }
