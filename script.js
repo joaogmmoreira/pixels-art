@@ -38,29 +38,29 @@ window.onload = function () {
     function selection (event) {
         // console.log(event.target);
 
-        let elemento = document.getElementsByClassName('selected')[0];
-        elemento.classList.remove('selected');
-        event.target.classList.add('selected');
+        // let elemento = document.getElementsByClassName('selected')[0];
+        // elemento.classList.remove('selected');
+        // event.target.classList.add('selected');
        
 
-        // let colors = document.getElementsByClassName('color');
+        let colors = document.getElementsByClassName('color');
 
-        // // console.log(colors);
-        // for (let index = 0; index <= colors.length; index++) {
+        // console.log(colors);
+        for (let index = 0; index < colors.length; index++) {
 
             
-        //     // colors[index].classList.toggle('selected');
-        //     // let element = colors[index];
-        //     // console.log(element.classList);
-        //     if (colors[index].className = 'color') {
-        //         //console.log(colors[i]);
-        //         event.target.className = 'color selected';
+            // colors[index].classList.toggle('selected');
+            // let element = colors[index];
+            // console.log(element.classList);
+            if (colors[index].className = 'color') {
+                //console.log(colors[i]);
+                event.target.className = 'color selected';
 
-        //     }else {
-        //         event.target.className = 'color';
-        //     }
+            }else {
+                event.target.className = 'color';
+            }
             
-        // }
+        }
        
     } 
 
@@ -90,10 +90,14 @@ window.onload = function () {
     botao.addEventListener('click', clearBoard);
 
     function clearBoard (event) {
-        for (let index = 0; index <= pixel.length; index ++) {
+
+        let pixel = document.querySelectorAll('.pixel');
+
+        for (let index = 0; index < pixel.length; index ++) {
             
             pixel[index].style.backgroundColor = 'white';
-        }
+        }  
+       
     }
 
 
