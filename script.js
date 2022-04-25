@@ -10,10 +10,10 @@ window.onload = function () {
     var laranja = document.getElementById('laranja');
     // laranja.addEventListener('click', selection);
 
-    let colors = document.getElementsByClassName('color');
+    const colors = document.getElementsByClassName('color');
 
-    for (var i = 0; i < colors.length; i++) {
-        colors[i].addEventListener('click', selection);
+    for (let index = 0; index < colors.length; index++) {
+        colors[index].addEventListener('click', selection);
     }
 
 
@@ -36,8 +36,10 @@ window.onload = function () {
 
 
     function selection (event) {
-        for (let i = 0; i <= colors.length; i++) {
-            if (colors[i].className = 'color') {
+        for (let index = 0; index <= colors.length; index++) {
+            
+            
+            if (colors[index].className = 'color') {
                 //console.log(colors[i]);
                 event.target.className = 'color selected';
 
@@ -49,22 +51,38 @@ window.onload = function () {
        
     } 
 
-    var pixel = document.getElementsByClassName('pixel');
-    for (var i = 0; i < pixel.length; i++) {
-        pixel[i].addEventListener('click', paint);
+    let pixel = document.querySelectorAll('.pixel');
+    for (var index = 0; index < pixel.length; index++) {
+        pixel[index].addEventListener('click', paint);
     }
 
 
     function paint (event) {
-        // for (let i = 0; i <= pixel.length; i++) {}
-        for (let i = 0; i <= colors.length; i++) {
-            if (colors[i].className = 'color selected') {
-                event.target.style.backgroundColor = 'red';
-            }
-        }
-    
+        for (let index = 0; index <= pixel.length; index ++) {
+            let selection = document.querySelector('.selected');
+            let whatColor = getComputedStyle(selection).getPropertyValue('background-color');
 
+            event.target.style.backgroundColor = whatColor;
+        }
+    // for (let i = 0; i <= pixel.length; i++) {}
+    //     for (let index = 0; index <= colors.length; index++) {
+    //         if (colors[index].className = 'color selected') {
+    //             let paint = colors[index].style.backgroundColor;
+    //             event.target.style.backgroundColor = paint;
+    //         }
+    //     }
     }
+
+    let botao = document.getElementById('clear-board');
+    botao.addEventListener('click', clearBoard);
+
+    function clearBoard (event) {
+        for (let index = 0; index <= pixel.length; index ++) {
+            
+            pixel[index].style.backgroundColor = 'white';
+        }
+    }
+
 
 
 }
