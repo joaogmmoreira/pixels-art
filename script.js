@@ -10,7 +10,7 @@ window.onload = function () {
     var laranja = document.getElementById('laranja');
     // laranja.addEventListener('click', selection);
 
-    const colors = document.getElementsByClassName('color');
+    let colors = document.getElementsByClassName('color');
 
     for (let index = 0; index < colors.length; index++) {
         colors[index].addEventListener('click', selection);
@@ -36,18 +36,31 @@ window.onload = function () {
 
 
     function selection (event) {
-        for (let index = 0; index <= colors.length; index++) {
-            
-            
-            if (colors[index].className = 'color') {
-                //console.log(colors[i]);
-                event.target.className = 'color selected';
+        // console.log(event.target);
 
-            }else {
-                event.target.className = 'color';
-            }
+        let elemento = document.getElementsByClassName('selected')[0];
+        elemento.classList.remove('selected');
+        event.target.classList.add('selected');
+       
+
+        // let colors = document.getElementsByClassName('color');
+
+        // // console.log(colors);
+        // for (let index = 0; index <= colors.length; index++) {
+
             
-        }
+        //     // colors[index].classList.toggle('selected');
+        //     // let element = colors[index];
+        //     // console.log(element.classList);
+        //     if (colors[index].className = 'color') {
+        //         //console.log(colors[i]);
+        //         event.target.className = 'color selected';
+
+        //     }else {
+        //         event.target.className = 'color';
+        //     }
+            
+        // }
        
     } 
 
